@@ -1,17 +1,18 @@
-def inputx():
-    x=(input("Unesi x: "))
-    if x.isdigit:
-        print("Hvala na inputu")
-    else:
-        x=(input("Unesi x koji je broj"))
-    return x
-def inputy():
-    y=(input("Unesi y: "))
-    if y.isdigit:
-        print("Hvala na inputu")
-    else:
-        y=(input("Unesi y koji je broj"))
-    return y
+
+def inputx():    
+    while True:
+        a=(input("Unesi unesi integer x: "))
+        if a.isdigit():
+            break
+        print("unos treba bit integer")
+    return a
+def inputy():       
+    while True:
+        a=(input("Unesi unesi integer y: "))
+        if a.isdigit():
+            break
+        print("unos treba bit integer")
+    return a
 x1=int(inputx())
 y1=int(inputy())
 x2=int(inputx())
