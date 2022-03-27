@@ -1,7 +1,6 @@
 import Particle as pa
 import numpy as np
 p1=pa.Particle()
-p1.set_initial_conditions(1,2,21,np.pi/4)
+p1.set_initial_conditions(0,0,10,60)
 
-print(p1.range())
-
+p1.plot_trajectory()
