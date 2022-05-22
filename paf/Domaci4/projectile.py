@@ -33,11 +33,36 @@ class Fric:
         self.A=(A)
         self.p=(p)
         self.m=m
-    #def friction_conditions(self,cd,A,p,m):
-        #self.cd=(cd)
-        #self.A=(A)
-        #self.p=(p)
-        #self.m=m
+    def set_initial_conditions_CUBE(self,alpha,vo,a,p,m,dt=0.01):
+        self.t.append(0)
+        self.x.append(0)
+        self.y.append(0)
+        self.angle=(alpha)
+        self.vx.append(vo*np.cos((alpha/180)*np.pi))
+        self.vy.append(vo*np.sin((alpha/180)*np.pi))
+        self.g=-9.81
+        self.dt=dt
+        self.ax.append(0)  
+        self.ay.append(0)
+        self.cd=(0.8)
+        self.A=(a**2)
+        self.p=(p)
+        self.m=m
+    def set_initial_conditions_SPHERE(self,alpha,vo,r,p,m,dt=0.01):
+        self.t.append(0)
+        self.x.append(0)
+        self.y.append(0)
+        self.angle=(alpha)
+        self.vx.append(vo*np.cos((alpha/180)*np.pi))
+        self.vy.append(vo*np.sin((alpha/180)*np.pi))
+        self.g=-9.81
+        self.dt=dt
+        self.ax.append(0)  
+        self.ay.append(0)
+        self.cd=(0.5)
+        self.A=(2*np.pi*r**2)
+        self.p=(p)
+        self.m=m
     def reset(self):
         self.__init__()
     def __ax(self, v):
@@ -119,7 +144,11 @@ class Fric:
     def dom(self):
         return self.x[-1]
     def cd(self):
-        return self.cd
-    
-        
-         
+        return self.cd       
+    def meta(self,x,y,r):
+        b=False
+        while self.x[-1] >= x:
+            self.__moveRK4()
+        if self.y[-1] > y-r and self.y[-1] < y+r:
+            b=True
+        return b
