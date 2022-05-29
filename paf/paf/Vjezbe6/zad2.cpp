@@ -13,12 +13,8 @@ if (rdot==r) {
     } else {
     std::cout<<"Tocka se nalazi van kruznici";
     }
-
 }
-
 int main(){
-
 radius(1,1,1,1,1);
-
 return 0;
 }
