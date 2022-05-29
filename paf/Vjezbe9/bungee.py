@@ -44,20 +44,20 @@ class Bung:
     def __move(self):    
         self.t.append(self.t[-1]+self.dt)
         self.ay.append(self.__ay(self.vy[-1]))
-        self.Eel.append((-1)*(1/2)*self.l*self.y[-1])
-        self.Eg.append(-1*self.g*self.y[-1]*self.m)
+        self.Eel.append((1/2)*self.l*self.y[-1]**2)
+        self.Eg.append(self.g*self.y[-1]*self.m)
         self.Eki.append((0.5)*self.vy[-1]**2*self.m)
-        self.EUK.append((-1)*(1/2)*self.l*self.y[-1]+(-1)*self.g*self.y[-1]*self.m+(1/2)*self.vy[-1]**2*self.m)
+        self.EUK.append((1/2)*self.l*self.y[-1]+self.g*self.y[-1]*self.m+(1/2)*self.vy[-1]**2*self.m)
         self.vy.append(self.vy[-1]+self.ay[-1]*self.dt)
         self.y.append(self.y[-1]+self.vy[-1]*self.dt)
         
     def __move2(self):    
         self.t.append(self.t[-1]+self.dt)
         self.ay.append(self.__ay2(self.vy[-1]))
-        self.Eel.append((-1)*(1/2)*self.l*self.y[-1])
-        self.Eg.append(-1*self.g*self.y[-1]*self.m)
+        self.Eel.append((1/2)*self.l*self.y[-1]**2)
+        self.Eg.append(1*self.g*self.y[-1]*self.m)
         self.Eki.append((0.5)*(self.vy[-1]**2)*self.m)
-        self.EUK.append((-1)*(1/2)*self.l*self.y[-1]+(-1)*self.g*self.y[-1]*self.m+(1/2)*self.vy[-1]**2*self.m)
+        self.EUK.append((1/2)*self.l*self.y[-1]+self.g*self.y[-1]*self.m+(1/2)*self.vy[-1]**2*self.m)
         self.vy.append(self.vy[-1]+self.ay[-1]*self.dt)
         self.y.append(self.y[-1]+self.vy[-1]*self.dt)
     def weee(self,time):
