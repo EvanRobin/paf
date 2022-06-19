@@ -19,6 +19,7 @@ def derivitives(f,a,b,option):
         for i in ab:
             d.append(derive_dot2(f,i))
     return d
+
 def intagral_a(f,a,b,steps):
     inta=[]
     fu=0
